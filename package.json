@@ -1,0 +1,17 @@
+{
+  "name": "git-mgmt-classroom-cli",
+  "version": "1.0.0",
+  "description": "Helper utilities for classroom git repo management",
+  "main": "index.js",
+  "bin": {
+    "new-lesson": "create-new-lesson_instructor.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brett Haymaker",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}
