@@ -25,7 +25,7 @@ fs.readFile(path.join('.', 'students_instructor.txt'), 'utf8', (err, data) => {
     .then(() => {
       fs.copy(`instructor/${pathToInstall}`, destination)
       .then(() => {
-        console.log('success!')
+        console.log(`Lesson ${pathToInstall} created for ${name}`)
       })
       .catch(err => {
         console.error(err)
@@ -34,8 +34,5 @@ fs.readFile(path.join('.', 'students_instructor.txt'), 'utf8', (err, data) => {
     .catch(err => {
       console.error(err)
     })
-
-    // shell(`mkdir -p '${destination}'`);
-    // shell(`cp -r 'instructor/${pathToInstall}/*' '${destination}'`);
   })
 })
