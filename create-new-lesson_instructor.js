@@ -23,12 +23,19 @@ fs.readFile(path.join('.', 'students_instructor.txt'), 'utf8', (err, data) => {
     const destination = `${pathToInstall}/${name}`
     fs.ensureDir(destination)
     .then(() => {
-      fs.copy(`instructor/${pathToInstall}`, destination)
-      .then(() => {
-        console.log(`Lesson ${pathToInstall} created for ${name}`)
-      })
-      .catch(err => {
-        console.error(err)
+
+      const files = fs.readdirSync(`instructor/${pathToInstall}`)
+      files.forEach(file => {
+        if(file !== 'node_modules') {
+          console.log(`instructor/${pathToInstall}/${file}`)
+          fs.copy(`instructor/${pathToInstall}/${file}`, destination)
+          .then(() => {
+            console.log(`Lesson ${pathToInstall} created for ${name}`)
+          })
+          .catch(err => {
+            console.error(err)
+          })
+        }
       })
     })
     .catch(err => {
